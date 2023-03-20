@@ -64,17 +64,17 @@ speed_multiplier = 1.0  # default is 1.0
 chosen_volume = 1.0  # default is 1.0 (from 0.0 to 1.0)
 
 try:
-    engine.setProperty('voice', engine.getProperty('voices')[chosen_voice].id)
+    engine.setProperty("voice", engine.getProperty("voices")[chosen_voice].id)
 except IndexError:
     print("Could not set custom selected voice")
 
 try:
-    engine.setProperty('rate', 200 * speed_multiplier)
+    engine.setProperty("rate", 200 * speed_multiplier)
 except IndexError:
     print("Could not set custom selected speed")
 
 try:
-    engine.setProperty('volume', chosen_volume)
+    engine.setProperty("volume", chosen_volume)
 except IndexError:
     print("Could not set custom selected volume")
 
