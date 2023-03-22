@@ -20,13 +20,27 @@ os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame
 
 
+#################
+# USER SETTINGS #
+#######################################################################################
+# Choose from available voices by changing chosen_voice number
+# Choose voice speed by changing speed_multiplier (0.5 = half speed, 2.0 = double, etc)
+# Choose voice volume by setting chosen_volume from 0 to 1 (e.g., 0.45 = 45% of normal)
+# Choose how far back the ALT+V command will rewind (e.g., 5 seconds)
+chosen_voice = 1  # default is 1 (starts at 0)
+speed_multiplier = 1.0  # default is 1.0
+chosen_volume = 1.0  # default is 1.0 (from 0.0 to 1.0)
+rewind_seconds = 5  # default is 5
+#######################################################################################
+
+
 print(
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
     "~~ TTS 3000 is now running ~~\n"
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
     "\nCTRL + b == play/pause highlighted text (not in this terminal/console window)"
     "\nCTRL + i == stop"
-    "\nALT  + v == back 10s"
+    "\nALT  + v == rewind"
     "\n\nMinimise this prompt/console/terminal window to use TTS 3000"
     "\n\nClose this prompt/console/terminal window to quit TTS 3000"
 )
@@ -55,13 +69,6 @@ purge_temp_files()
 
 pygame.init()
 engine = pyttsx3.init()
-
-# Choose from available voices by changing chosen_voice number
-# Choose voice speed by changing speed_multiplier (0.5 = half speed, 2.0 = double, etc)
-# Choose voice volume by setting chosen_volume from 0 to 1 (e.g., 0.45 = 45% of normal)
-chosen_voice = 1  # default is 1 (starts at 0)
-speed_multiplier = 1.0  # default is 1.0
-chosen_volume = 1.0  # default is 1.0 (from 0.0 to 1.0)
 
 try:
     engine.setProperty("voice", engine.getProperty("voices")[chosen_voice].id)
@@ -143,19 +150,19 @@ def stop():
     return state
 
 
-def back_10s():
-    """Rewind 10s or to 0s."""
+def rewind_n_seconds():
+    """Rewind n seconds or to 00:00 (0 seconds)."""
     global state
     current_pos = pygame.mixer.music.get_pos() / 1000
     state = "Playing"
 
-    # If less than 11 seconds into the audio file, start from beginning (0s)
-    if current_pos < 11:
+    # If not beyond n seconds in the audio file, start from beginning (00:00 / 0s)
+    if current_pos <= rewind_seconds:
         pygame.mixer.music.play()
 
-    # If 11 seconds or more into the audio file, rewind 10s
-    if current_pos >= 11:
-        pygame.mixer.music.play(start=current_pos - 10)
+    # If more than n seconds into the audio file, rewind n seconds
+    if current_pos > rewind_seconds:
+        pygame.mixer.music.play(start=current_pos - rewind_seconds)
 
     return state
 
@@ -170,8 +177,8 @@ def forward_5s():
 
 
 keyboard.add_hotkey("ctrl + b", speak_highlighted)
-keyboard.add_hotkey("alt + v", back_10s)
+keyboard.add_hotkey("alt + v", rewind_n_seconds)
 # keyboard.add_hotkey("alt + shift + v", forward_5s)
-keyboard.add_hotkey("ctrl + i", stop)
+# keyboard.add_hotkey("ctrl + i", stop)
 keyboard.add_hotkey("ctrl + #", check_status)
 keyboard.wait("ctrl + 1 + 2")
