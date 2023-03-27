@@ -13,9 +13,11 @@ User guide
 3) Minimise the console once you see "TTS 3000 in now running"
 4) Highlight some text, such as in a browser, Word document, or PDF, and press CTRL + B (default, can be changed)
 
-![image](https://user-images.githubusercontent.com/82766547/227894990-f57f8e15-4d1b-496c-8f3e-62d175d0b4b7.png)
+
+![image](https://user-images.githubusercontent.com/82766547/227897143-dede1e3a-16f4-415c-9c2a-96c5b45bf780.png)
 
 ![image](https://user-images.githubusercontent.com/82766547/227896657-ac0837aa-e7d1-443e-81e2-a11afda6d13e.png)
+
 
 Debugging
 - CTRL + # == report status to console (for debugging)
