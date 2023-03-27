@@ -11,7 +11,7 @@ User guide
 1) Download this GitHub repository
 2) Run the program (main.py), such as via running (opening/double-clicking) launch_tts.bat
 3) Minimise the console once you see "TTS 3000 in now running"
-4) Highlight some text, such as in a browser, Word document, or PDF, and press CTRL + B (default, can be changed)
+4) Highlight some text, such as in a browser, Word document, or PDF, and press CTRL + b (default, can be changed)
 
 
 ![image](https://user-images.githubusercontent.com/82766547/227897143-dede1e3a-16f4-415c-9c2a-96c5b45bf780.png)
