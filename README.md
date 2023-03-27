@@ -1,6 +1,4 @@
-# Text-to-Speech-TTS-3000
-
-Basic highlighted-text-to-speech reader.
+# Text-to-Speech-TTS-3000: a basic highlighted-text-to-speech reader.
 
 Controls
 - CTRL + b == play/pause highlighted text (minimise this terminal/console first!)"
