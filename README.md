@@ -13,6 +13,7 @@ User guide
 3) Minimise the console once you see "TTS 3000 in now running"
 4) Highlight some text, such as in a browser, Word document, or PDF, and press CTRL + b (default, can be changed)
 
+Note: TTS 300 creates temporary audio files, so be aware of who has access to your TTS 3000 folder. Anyone with access to the TTS 3000 folder will be able to see the temporary TTS 3000 audio files while they exist.
 
 ![image](https://user-images.githubusercontent.com/82766547/227897143-dede1e3a-16f4-415c-9c2a-96c5b45bf780.png)
 
