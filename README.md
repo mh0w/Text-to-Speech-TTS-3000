@@ -1,17 +1,18 @@
 # Text-to-Speech-TTS-3000
 
-Basic text-to-speech reader.
+Basic highlighted-text-to-speech reader.
 
-ctrl + b == play/pause
+Controls
+- CTRL + b == play/pause highlighted text (minimise this terminal/console first!)"
+- ALT  + v == rewind"
+- ALT  + n == fast-forward"
+- Minimise the prompt/console/terminal window to use TTS 3000
+- Close the prompt/console/terminal window to quit TTS 3000"
 
-alt + v == back 10s
-
-ctrl + i == stop
-
-ctrl + # == report status to console (for debugging)
-
-ctr + 1 + 2 == stop/exit/escape
+Debugging
+- CTRL + # == report status to console (for debugging)
+- CTRL + 1 + 2 == stop/exit/escape
 
 Created March 2023
 
-Author: hawkem
+Author: hawkem / mh0w
