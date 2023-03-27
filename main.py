@@ -22,18 +22,24 @@ from win32com.client import Dispatch
 from time import sleep
 
 
-#################
-# USER SETTINGS #
+#######################################################################################
+# USER SETTINGS #######################################################################
 #######################################################################################
 # Choose from available voices by changing chosen_voice number
 # Choose voice speed by changing speed_multiplier (0.5 = half speed, 2.0 = double, etc)
 # Choose voice volume by setting chosen_volume from 0 to 1 (e.g., 0.45 = 45% of normal)
-# Choose how far back the ALT+V command will rewind (e.g., 5 seconds)
+# Choose how many seconds to rewind and fast forward in seconds
+# Choose what hotkeys to use for play/pause, rewind, and fast forward
 chosen_voice = 1  # default is 1 (starts at 0)
 speed_multiplier = 1.0  # default is 1.0
 chosen_volume = 1.0  # default is 1.0 (from 0.0 to 1.0)
-rewind_seconds = 3  # default is 3
-forward_seconds = 3  # default is 3
+rewind_seconds = 3  # default is 3 (seconds)
+forward_seconds = 3  # default is 3 (seconds)
+play_pause_hotkey = "ctrl + b"  # default is "ctrl + b"
+rewind_hotkey = "alt + v"  # default is "alt + v"
+forward_hotkey = "alt + n"  # default is "alt + n"
+#######################################################################################
+#######################################################################################
 #######################################################################################
 
 
@@ -151,26 +157,13 @@ def speak_highlighted():
 
 def rewind_n_seconds():
     """Rewind n seconds, or rewind to 00:00 (0 seconds) if near start already."""
-    global state, mp, tune
-    state = "Playing"
-
-    # If not beyond n seconds in the audio file, start from beginning (00:00 / 0s)
     mp.controls.currentPosition = (mp.controls.currentPosition) - rewind_seconds
-
-    # If more than n seconds into the audio file, rewind n seconds
-
-    return state
 
 
 def forward_n_seconds():
     """Go forward n seconds if sufficiently far from end of audio track."""
-    global state
-    state = "Playing"
-
-    if mp.currentMedia.duration > (mp.controls.currentPosition + forward_seconds):
+    if mp.currentMedia.duration > (mp.controls.currentPosition + forward_seconds + 2):
         mp.controls.currentPosition = (mp.controls.currentPosition) + forward_seconds
-
-    return state
 
 
 def fast_forward_speed():
@@ -195,9 +188,9 @@ def fast_reverse_speed():
     return state
 
 
-keyboard.add_hotkey("ctrl + b", speak_highlighted)
-keyboard.add_hotkey("alt + v", rewind_n_seconds)
-keyboard.add_hotkey("alt + n", forward_n_seconds)
+keyboard.add_hotkey(play_pause_hotkey, speak_highlighted)
+keyboard.add_hotkey(rewind_hotkey, rewind_n_seconds)
+keyboard.add_hotkey(forward_hotkey, forward_n_seconds)
 # keyboard.add_hotkey("ctrl + plus", fast_forward_speed)
 # keyboard.add_hotkey("ctrl + -", fast_reverse_speed)
 keyboard.add_hotkey("ctrl + #", check_status)
