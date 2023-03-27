@@ -18,6 +18,7 @@ User guide
 
 ![image](https://user-images.githubusercontent.com/82766547/227896657-ac0837aa-e7d1-443e-81e2-a11afda6d13e.png)
 
+![image](https://user-images.githubusercontent.com/82766547/227907400-47e52885-2919-4843-8400-a561f884d9e3.png)
 
 Debugging
 - **CTRL + #** == report status to console (for debugging)
