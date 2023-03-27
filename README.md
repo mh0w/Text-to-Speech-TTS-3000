@@ -16,7 +16,7 @@ User guide
 - Note: TTS 300 creates temporary audio files, so be aware of who has access to your TTS 3000 folder. Anyone with access to your TTS 3000 folder will be able to see the temporary TTS 3000 audio files while they exist. You should avoid, for example, placing TTS 3000 in a folder on a shared drive and then using TTS 3000 to read private bank statements.
 
 <details>
-    <summary>Screenshots showing the console, example usage, default hotkeys, and user settings</summary>
+    <summary>Click to show Screenshots showing the console, example usage, default hotkeys, and user settings</summary>
 
 ![image](https://user-images.githubusercontent.com/82766547/227897143-dede1e3a-16f4-415c-9c2a-96c5b45bf780.png)
 ![image](https://user-images.githubusercontent.com/82766547/227896657-ac0837aa-e7d1-443e-81e2-a11afda6d13e.png)
