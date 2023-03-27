@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Basic text-to-speech reader.
+Basic highlighted-text-to-speech reader.
 
 Created March 2023
 
@@ -41,7 +41,7 @@ print(
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
     "~~ TTS 3000 is now running ~~\n"
     "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-    "\nCTRL + b == play/pause highlighted text (not in this terminal/console window)"
+    "\nCTRL + b == play/pause highlighted text (minimise this terminal/console first!)"
     "\nALT  + v == rewind"
     "\nALT  + n == fast-forward"
     "\n\nMinimise this prompt/console/terminal window to use TTS 3000"
