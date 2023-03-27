@@ -1,7 +1,7 @@
 # TTS 3000: a highlighted-text-to-speech reader
 
 Controls
-- CTRL + b == play/pause highlighted text (minimise this terminal/console first!)
+- CTRL + b == play/pause highlighted text
 - ALT  + v == rewind
 - ALT  + n == fast-forward
 - Minimise the prompt/console/terminal window to use TTS 3000
