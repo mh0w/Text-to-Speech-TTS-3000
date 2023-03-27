@@ -1,6 +1,7 @@
 temp_tts_3000_wav_files
 temp_audio_files
 *.bak
+experimental_*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
