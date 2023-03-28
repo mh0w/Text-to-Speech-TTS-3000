@@ -3,3 +3,8 @@ pyautogui
 keyboard
 pygame
 soundfile
+easyocr
+tkinter
+Pillow
+jupyter
+ipywidgets

@@ -6,20 +6,20 @@ Created March 2023
 
 @author: hawkem / mh0w
 """
-# pip install pyttsx3 pygame pyautogui keyboard glob errno soundfile
+# pip install pyttsx3 pygame pyautogui keyboard glob errno soundfile jupyter ipywidgets
 import os
-import errno
 import pyttsx3
 import pyautogui as pya
 import time
 import glob
 import keyboard
-from tkinter import Tk
+from tkinter import tk
 import soundfile as sf
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame
 from win32com.client import Dispatch
 from time import sleep
+import subprocess
 
 
 #######################################################################################
@@ -38,6 +38,7 @@ forward_seconds = 3  # default is 3 (seconds)
 play_pause_hotkey = "ctrl + b"  # default is "ctrl + b"
 rewind_hotkey = "alt + v"  # default is "alt + v"
 forward_hotkey = "alt + n"  # default is "alt + n"
+ocr_hotkey = "alt + o"  # default is "alt + o"
 #######################################################################################
 #######################################################################################
 #######################################################################################
@@ -115,7 +116,7 @@ def speak_highlighted():
 
     # Capture clipboard
     pya.hotkey("ctrl", "c")  # copy the text (simulating key strokes)
-    clipboard = Tk().clipboard_get()
+    clipboard = tk().clipboard_get()
     if clipboard.strip() == "":
         clipboard = "No text selected"
 
@@ -166,33 +167,16 @@ def forward_n_seconds():
         mp.controls.currentPosition = (mp.controls.currentPosition) + forward_seconds
 
 
-def fast_forward_speed():
-    """Play forward at 5x speed until a play/stop command issued."""
-    global state
-
-    if mp.currentMedia.duration > mp.controls.currentPosition:
-        mp.controls.fastForward()
-        state = "Playing"
-
-    return state
-
-
-def fast_reverse_speed():
-    """Play in reverse at 5x speed until a play/stop command is issued."""
-    global state
-
-    if mp.controls.currentPosition > 5:
-        mp.controls.fastReverse()
-        state = "Playing"
-
-    return state
+def run_ocr_script():
+    """Run the OCR image to text script."""
+    subprocess.Popen(['python', 'ocr.py'])
 
 
 keyboard.add_hotkey(play_pause_hotkey, speak_highlighted)
 keyboard.add_hotkey(rewind_hotkey, rewind_n_seconds)
 keyboard.add_hotkey(forward_hotkey, forward_n_seconds)
-# keyboard.add_hotkey("ctrl + plus", fast_forward_speed)
-# keyboard.add_hotkey("ctrl + -", fast_reverse_speed)
+keyboard.add_hotkey(ocr_hotkey, run_ocr_script)
+
 keyboard.add_hotkey("ctrl + #", check_status)
 
 keyboard.wait("ctrl + 1 + 2")
