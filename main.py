@@ -13,7 +13,7 @@ import pyautogui as pya
 import time
 import glob
 import keyboard
-from tkinter import tk
+from tkinter import Tk
 import soundfile as sf
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame
@@ -116,7 +116,7 @@ def speak_highlighted():
 
     # Capture clipboard
     pya.hotkey("ctrl", "c")  # copy the text (simulating key strokes)
-    clipboard = tk().clipboard_get()
+    clipboard = Tk().clipboard_get()
     if clipboard.strip() == "":
         clipboard = "No text selected"
 
