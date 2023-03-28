@@ -4,6 +4,7 @@ Controls
 - **CTRL + b** == play/pause highlighted text
 - **ALT  + v** == rewind
 - **ALT  + n** == fast-forward
+- **ALT  + o** == extract text using OCR
 - Minimise the prompt/console/terminal window to use TTS 3000
 - Close the prompt/console/terminal window to quit TTS 3000
 
