@@ -4,7 +4,8 @@ keyboard
 pygame
 soundfile
 easyocr
-tkinter
+tk
 Pillow
 jupyter
 ipywidgets
+typing-extensions>=4.5
