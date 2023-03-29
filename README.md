@@ -1,5 +1,7 @@
 # TTS 3000: a highlighted-text-to-speech reader
 
+TTS 3000 reads highlighted text aloud on command. Behind the scenes, the program captures the highlighted text, converts it to an audio file, and then reads the audio file aloud. The user can control playback and adjust settings such as the voice, speed, volume, and rewind/fast-forward duration.
+
 Controls
 - **CTRL + b** == play/pause highlighted text
 - **ALT  + v** == rewind
